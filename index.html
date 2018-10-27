@@ -1,55 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <!--Javascript CDN-->
+    <!--Javascript CDN-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <!--Javascript file link-->
+    <!--Javascript file link-->
     <script src="assets/javascript/game.js"></script>
-      <!--internal css -->
-      <link rel="stylesheet" href="assets/css/style.css">
-    <title>CrystalsCollector</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap File -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
+
+
+    <!--internal css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Cosmic Crystal Collector</title>
 </head>
+
 <body></body>
 
-    <h1 id="title">CrystalsCollector!</h1>
+<div class="row">
+    <div class="col-md-12">
+        <h1 id="title">Cosmic Crystal Collector</h1>
+    </div>
+</div>
 
-        <div id="rules-area">
-          <h4>You will be given a random number at the start of the game.</h4>
-          <h4>There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</h4>
-          <h4>You win the game by matching your total score to random number, you lose the game if your total score goes above the random number.</h4>
-          <h4>The value of each crystal is hidden from you until you click on it.</h4>
-          <h4>Each time when the game starts, the game will change the values of each crystal</h4>
-        </div>
-   
-    <div id="screen">
-            <!-- Random Number Display -->
-            <div id="random-area"></div>
+<div class="row">
+
+    <div class="col-md-1"> </div>
+    <div class="col-md-5">
+
+        <h4>
+            <div id="rules-area">
+                <h4>You will be given a random number at the start of the game.</h4>
+                <h4>There are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your
+                    total score.</h4>
+                <h4>You win the game by matching your total score to random number, you lose the game if your total
+                    score goes
+                    above the random number.</h4>
+                <h4>The value of each crystal is hidden from you until you click on it.</h4>
+                <h4>Each time when the game starts, the game will change the values of each crystal</h4>
+            </div>
+
+    </div>
+
+    <div class="col-md-5">
+        <div id="screen">
+            
             <!-- Wins/Losses Display -->
             <div id="win-area">
                 <div id="wins"></div>
-                <div id="losses"></div>  
+                <div id="losses"></div>
             </div>
-          </div>
-      
-          <div>
-            <!-- Crystals -->
-            <div id="crystal-area"> 
-      
-            <img id="diamond" class="crystal"  src="assets/images/blue.png">
-            <img id="emerald" class="crystal" src="assets/images/green.png">
-            <img id="topaz" class="crystal" src="assets/images/yellow.png">
-            <img id="ruby" class="crystal" src="assets/images/red.png">
-      
-            </div>
-            <div id="score-title">Your total score is:</div>
-            <!-- Score Display -->
-            <div id="score-area"></div>
-          </div>
-      
 
-  
+            <!-- Random Number Display -->
+            <div id="random-area"></div>
+        </div>
+
+        <div id="score-title">
+            Your total score is:
+        </div>
+        <!-- Score Display -->
+        <div id="score-area"><h4></h4></div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+
+
+
+<!-- Crystals -->
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div id="crystal-area">
+
+            <img id="diamond" class="crystal" src="assets/images/diamond-trans.png">
+            <img id="emerald" class="crystal" src="assets/images/emerald-trans3.png">
+            <img id="topaz" class="crystal" src="assets/images/topaz-trans.png">
+            <img id="ruby" class="crystal" src="assets/images/ruby-trans.png">
+
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+
+
+</div>
+
+
+
+
 </body>
+
 </html>
