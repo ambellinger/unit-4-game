@@ -108,6 +108,8 @@ $(document).ready(function () {
             //  Commpare the current total points with the computer generated points by calling the function.
 
             checkWinsOrLosses();
+            
+           
         });
         //repeat for each crystal
 
