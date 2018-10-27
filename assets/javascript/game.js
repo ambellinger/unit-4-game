@@ -26,113 +26,115 @@ var emerald = 0;
 var totalPoints = 0;
 
 //The computer must randomly generate a larger number between 19 and 120
-var ComputerPick= Math.floor(Math.random()* 101)+19;
+var ComputerPick = Math.floor(Math.random() * 101) + 19;
 
 //The computer must randommly generate a value for each of the crystals;
 //      this will happen 4 times.
-ruby = Math.floor(Math.random()* 12) + 1;
-diamond = Math.floor(Math.random()* 12) +1;
-topaz = Math.floor(Math.random()* 12) +1;
-emerald= Math.floor(Math.random()* 12) +1;
+ruby = Math.floor(Math.random() * 12) + 1;
+diamond = Math.floor(Math.random() * 12) + 1;
+topaz = Math.floor(Math.random() * 12) + 1;
+emerald = Math.floor(Math.random() * 12) + 1;
 
 //Prep jquery
-$(document).ready(function(){
+$(document).ready(function () {
 
     //Display the computer pick
-    function initial()
-    {
-       $("#random-area").html(ComputerPick);
-      
+    function initial() {
+        $("#random-area").html(ComputerPick);
+        $("#wins").html("Wins: " + wins);
+        $("#losses").html("Losses: " + losses);
+
     }
-   function resetGame()
-   {
-        //reset all crystal variables and computerpick
-        //to new random picks
-         
-        //Total user  is zero
-   
-   
-   }
-   function checkWinsOrLosses()
-   {
-       //   if(totaluser===computer pick)
-        //{
-           //wins++
-            //win-area div display You're a winner!
-            // call resetgame
-       //}
-        // else if(totaluser>computer pick)
-         // {
-      ///        losses++
-      //          //win-area div display You're a Loser!
-        // call resetgame
-      //   }    
-   }
-   function playGame(){
-    
-        
-// The crystals are assocaited with images. 
+    function resetGame() {
 
-//On click function must transfer the randomly generated value for each of the crystals
-//      to the variable
+        //Reset all your base parameters: total points, computer pick, and each crystal. 
+        totalPoints = 0;
+        ComputerPick = Math.floor(Math.random() * 101) + 19;
+        ruby = Math.floor(Math.random() * 12) + 1;
+        diamond = Math.floor(Math.random() * 12) + 1;
+        topaz = Math.floor(Math.random() * 12) + 1;
+        emerald = Math.floor(Math.random() * 12) + 1;
+        //Don't forget to display the new amounts.
+        $("#random-area").html(ComputerPick);
+        $("#score-area").html("");
 
-       $("#diamond").on("click",function(){
-//Variables for each crystals need to be added up  
-        totalPoints = totalPoints += diamond
-//  Display total points
-    $("#score-area").html(totalPoints);
-    //global variable diamond that the set random
-           //totaluser+=global variable diamond
+    }
 
-                   //score-title div to display totaluser
-       // call checkWinsOrLosses()
-               });
-   //repeat for each crystal
 
-       $("#emerald").on("click",function(){
-        totalPoints = totalPoints += emerald
-        //  Display total points
+    //If Else statement that check for wins. If the crystal points equal the large randomly generated
+    //      number, they win. If it goes over, they lose.
+
+    function checkWinsOrLosses() {
+        if (totalPoints === ComputerPick) {
+
+            //Wins must be added to total amount of wins.
+            wins++
+            alert("You Win!");
+            $("#wins").html("Wins: " + wins);
+
+            //After a win or a loss, game must be reset.
+            resetGame();
+
+        } else if (totalPoints > ComputerPick) {
+            //Losses must be added to total amount of wins.
+            losses++
+            alert("You Lose!");
+            $("#losses").html("Losses: " + losses);
+
+
+            //After a win or a loss, game must be reset.
+            resetGame();
+        }
+
+    }
+    function playGame() {
+
+
+
+        //  On click function must transfer the randomly generated value for each of the crystals
+        //      to the variable.         
+        //      The crystals are assocaited with images. You call the image thru # id.
+
+        $("#diamond").on("click", function () {
+
+            //  Variables for each crystals need to be added up to the total points.
+
+            totalPoints = totalPoints += diamond
+
+            //  Display total points
+
             $("#score-area").html(totalPoints);
-   //  global variable emerald that the set random
-           //totaluser+=global variable emerald
-                   //score-title div to display totaluser
-          //call  checkWinsOrLosses()
-               });
-       $("#topaz").on("click",function(){
-        totalPoints = totalPoints += topaz
-        //  Display total points
+
+            //  Commpare the current total points with the computer generated points by calling the function.
+
+            checkWinsOrLosses();
+        });
+        //repeat for each crystal
+
+        $("#emerald").on("click", function () {
+            totalPoints = totalPoints += emerald
             $("#score-area").html(totalPoints);
-   //  global variable topaz that the set random
-           //totaluser+=global variable topaz
-              //score-title div to display totaluser
-      // call checkWinsOrLosses()
-           });
-       $("#ruby").on("click",function(){
-        totalPoints = totalPoints += ruby
-        //  Display total points
+            checkWinsOrLosses();
+        });
+
+        $("#topaz").on("click", function () {
+            totalPoints = totalPoints += topaz
             $("#score-area").html(totalPoints);
-   //  global variable ruby that the set random
-           //totaluser+=global variable ruby
-           //score-title div to display totaluser
-         //call  checkWinsOrLosses()
-       });
-   
-   
-       }
-   
-   initial();
-   
-   playGame();
-   
-   });
-   
+            checkWinsOrLosses();
+        });
+
+        $("#ruby").on("click", function () {
+            totalPoints = totalPoints += ruby
+            $("#score-area").html(totalPoints);
+            checkWinsOrLosses();
+        });
 
 
-//If Else statement that check for wins. If the crystal points equal the large randomly generated
-//      number, they win. If it goes over, they lose.
+    }
+    //Must call your functions to initiate the game.
+    initial();
 
-//Wins and Losses must be added, accordingly
+    playGame();
 
-//Game must reset and new numbers must be generated. resetGame().
-
+});
 
